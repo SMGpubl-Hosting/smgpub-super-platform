@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern UI | Coral Framework</title>
+  <style>
+    /* 1. DESIGN TOKENS */
+    :root {
+      --color-primary: #ff6f61;
+      --color-primary-dark: #e65a50;
+      --color-bg: #f4f5f7;
+      --color-surface: #ffffff;
+      --color-text: #22252b;
+      --color-muted: #6b7280;
+      --color-border: #e5e7eb;
+      --radius-md: 10px;
+      --radius-lg: 20px;
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.1);
+      --space-section: 80px;
+    }
+
+    /* Dark Mode Overrides */
+    html.dark {
+      --color-bg: #0f172a;
+      --color-surface: #1e293b;
+      --color-text: #f8fafc;
+      --color-muted: #94a3b8;
+      --color-border: #334155;
+    }
+
+    /* 2. RESET & BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Inter', system-ui, sans-serif; 
+      background: var(--color-bg); 
+      color: var(--color-text);
+      line-height: 1.6;
+      transition: background 0.3s ease;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* 3. NAVIGATION */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(var(--color-surface), 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-size: 1.5rem; font-weight: 800; color: var(--color-primary); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    
+    .dropdown { position: relative; }
+    .dropdown-menu {
+      position: absolute; top: 100%; left: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      min-width: 180px; padding: 8px;
+      display: none; box-shadow: var(--shadow-md);
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    
+    /* 4. HERO SECTION */
+    .hero { padding: var(--space-section) 0; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .text-gradient {
+      background: linear-gradient(90deg, var(--color-primary), #ff9472);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 24px; }
+    .hero p { font-size: 1.25rem; color: var(--color-muted); margin-bottom: 32px; }
+
+    /* 5. BUTTONS */
+    .btn {
+      padding: 12px 28px; border-radius: 50px; font-weight: 600; cursor: pointer;
+      display: inline-block; transition: transform 0.2s;
+    }
+    .btn-primary { background: var(--color-primary); color: white; border: none; }
+    .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+    
+    /* 6. FEATURES GRID */
+    .features { padding: var(--space-section) 0; background: rgba(0,0,0,0.02); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .card {
+      background: var(--color-surface);
+      padding: 32px; border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
+    .icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+
+    /* Theme Toggle Switch */
+    .theme-toggle {
+      background: var(--color-border);
+      border: none; padding: 8px; border-radius: 20px; cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .nav-links { display: none; } /* Add hamburger logic here if needed */
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="nav-brand">CORAL.IO</a>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#">Products ▼</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Pricing</a></li>
+        <li><button class="theme-toggle" id="themeBtn">🌓</button></li>
+        <li><a href="#" class="btn btn-primary">Join Now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1>Build your dream <span class="text-gradient">interface</span> faster.</h1>
+        <p>The ultimate toolkit for developers who care about speed, aesthetics, and dark mode out of the box.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary">Get Started</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="card" style="transform: rotate(3deg); background: linear-gradient(135deg, #fff, #ffeae8);">
+          <h3>Activity Overview</h3>
+          <div style="height: 150px; background: #eee; margin-top: 20px; border-radius: 10px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <span class="icon">🚀</span>
+          <h3>Fast Performance</h3>
+          <p>Optimized for Core Web Vitals and lightning-fast user experiences.</p>
+        </div>
+        <div class="card">
+          <span class="icon">🌙</span>
+          <h3>Dark Mode</h3>
+          <p>Native support for dark themes with CSS variable swapping.</p>
+        </div>
+        <div class="card">
+          <span class="icon">🛠️</span>
+          <h3>Customizable</h3>
+          <p>Change your entire brand palette by updating just three tokens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="mb-1">Simple, <span class="text-gradient">transparent</span> pricing.</h2>
+      <p class="subtitle">Choose the plan that's right for your business scale.</p>
+    </div>
+
+    <div class="grid grid-3 mt-5">
+      <div class="card pricing-card">
+        <span class="plan-name">Starter</span>
+        <div class="price">$0<span>/mo</span></div>
+        <ul class="plan-features">
+          <li>✓ 3 Projects</li>
+          <li>✓ Basic Components</li>
+          <li>✓ Community Support</li>
+        </ul>
+        <button class="btn btn-ghost w-100">Get Started</button>
+      </div>
+
+      <div class="card pricing-card popular">
+        <div class="ribbon">Most Popular</div>
+        <span class="plan-name">Pro</span>
+        <div class="price">$29<span>/mo</span></div>
+        <ul class="plan-features">
+          <li>✓ Unlimited Projects</li>
+          <li>✓ Premium UI Library</li>
+          <li>✓ 24/7 Priority Support</li>
+          <li>✓ Advanced Analytics</li>
+        </ul>
+        <button class="btn btn-primary w-100">Start Free Trial</button>
+      </div>
+
+      <div class="card pricing-card">
+        <span class="plan-name">Enterprise</span>
+        <div class="price">$99<span>/mo</span></div>
+        <ul class="plan-features">
+          <li>✓ Custom Components</li>
+          <li>✓ Dedicated Manager</li>
+          <li>✓ SSO & Security</li>
+        </ul>
+        <button class="btn btn-ghost w-100">Contact Sales</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script>
+    const btn = document.getElementById('themeBtn');
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>
