@@ -1,288 +1,142 @@
-/* GLOBAL */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-
-font-family: Arial, Helvetica, sans-serif;
-background:#0f1117;
-color:white;
-line-height:1.6;
-
-}
-
-
-/* HEADER */
-
-header{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-background:#000;
-
-}
-
-.logo{
-
-font-size:24px;
-font-weight:bold;
-color:#00ffc3;
-
-}
-
-nav a{
-
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-weight:bold;
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:#00ffc3;
-
-}
-
-
-/* HERO */
-
-.hero{
-
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(120deg,#121826,#0f1117);
-
-}
-
-.hero h1{
-
-font-size:48px;
-margin-bottom:20px;
-
-}
-
-.hero p{
-
-font-size:20px;
-opacity:.8;
-margin-bottom:30px;
-
-}
-
-
-/* BUTTON */
-
-.btn{
-
-background:#00ffc3;
-color:#000;
-border:none;
-padding:14px 28px;
-font-weight:bold;
-border-radius:6px;
-cursor:pointer;
-transition:.3s;
-
-}
-
-.btn:hover{
-
-transform:scale(1.05);
-
-}
-
-
-/* PRICING */
-
-.pricing{
-
-padding:80px 40px;
-text-align:center;
-
-}
-
-.pricing h2{
-
-font-size:36px;
-margin-bottom:10px;
-
-}
-
-.pricing-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-margin-top:40px;
-
-}
-
-.plan{
-
-background:#1c1f2a;
-padding:40px;
-border-radius:10px;
-transition:.3s;
-
-}
-
-.plan:hover{
-
-transform:translateY(-5px);
-
-}
-
-.plan h3{
-
-color:#00ffc3;
-margin-bottom:10px;
-
-}
-
-.plan h1{
-
-font-size:42px;
-margin-bottom:10px;
-
-}
-
-.plan ul{
-
-list-style:none;
-margin:20px 0;
-
-}
-
-.plan li{
-
-margin:10px 0;
-
-}
-
-.featured{
-
-border:2px solid #00ffc3;
-
-}
-
-
-/* FEATURES */
-
-.features{
-
-padding:80px 40px;
-text-align:center;
-
-}
-
-.feature-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:40px;
-
-}
-
-.card{
-
-background:#1c1f2a;
-padding:30px;
-border-radius:10px;
-
-}
-
-.card h3{
-
-color:#00ffc3;
-margin-bottom:10px;
-
-}
-
-
-/* MARKETPLACE */
-
-.marketplace{
-
-padding:80px 40px;
-text-align:center;
-background:#11141d;
-
-}
-
-.market-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-margin-top:40px;
-
-}
-
-.track{
-
-background:#1c1f2a;
-padding:25px;
-border-radius:10px;
-
-}
-
-.track h4{
-
-margin-bottom:10px;
-
-}
-
-
-/* SIGNUP */
-
-.signup{
-
-padding:100px 20px;
-text-align:center;
-background:#0c0e14;
-
-}
-
-.signup h2{
-
-margin-bottom:10px;
-
-}
-
-
-/* FOOTER */
-
-footer{
-
-background:black;
-text-align:center;
-padding:30px;
-margin-top:50px;
-font-size:14px;
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:34px;
-}
-
-nav{
-display:none;
-}
-
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMGPUB - All-in-One Platform</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="#home">Home</a> |
+  <a href="#pricing">Pricing</a> |
+  <a href="#marketplace">Marketplace</a> |
+  <a href="#licensing">Licensing</a> |
+  <a href="#signup">Signup</a> |
+  <a href="#royalties">Royalties</a> |
+  <a href="#splits">Split Calculator</a> |
+  <a href="#mediaLicensing">Licensing Products</a>
+</nav>
+
+<main>
+  <!-- Home -->
+  <section id="home">
+    <h1>Welcome to SMGPUB</h1>
+    <p>Sell, distribute, and license your music instantly!</p>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <h1>Pricing Plans</h1>
+    <ul>
+      <li>Basic Plan - $99.99 (Access feature content at discounted prices)</li>
+      <li>Pro Plan - $199.99/month (Full platform access + advanced features)</li>
+      <li>Enterprise Plan - Contact us (Custom solutions for teams or labels)</li>
+    </ul>
+  </section>
+
+  <!-- Marketplace -->
+  <section id="marketplace">
+    <h1>Marketplace</h1>
+    <div id="trackList"></div>
+  </section>
+
+  <!-- Licensing Form -->
+  <section id="licensing">
+    <h1>Music Licensing</h1>
+    <form id="licensingForm">
+      <label>Name:</label><br>
+      <input type="text" name="name" required><br>
+      <label>Email:</label><br>
+      <input type="email" name="email" required><br>
+      <label>Track ID:</label><br>
+      <input type="text" name="track" required><br>
+      <button type="submit">Request License</button>
+    </form>
+  </section>
+
+  <!-- Signup Form -->
+  <section id="signup">
+    <h1>Signup</h1>
+    <form id="signupForm">
+      <label>Email:</label><br>
+      <input type="email" name="email" required><br>
+      <label>Password:</label><br>
+      <input type="password" name="password" required><br>
+      <button type="submit">Signup</button>
+    </form>
+  </section>
+
+  <!-- Royalty Calculator -->
+  <section id="royalties">
+    <h1>Royalty Calculator</h1>
+    <div id="royaltyCalculator">
+      <label for="trackSelect">Select Track:</label><br>
+      <select id="trackSelect"></select><br>
+      <label for="streamsInput">Number of Streams:</label><br>
+      <input type="number" id="streamsInput" value="1000" min="0"><br>
+      <button id="calculateBtn">Calculate Royalty</button><br>
+      <p id="royaltyOutput">Your estimated royalty will appear here.</p>
+    </div>
+  </section>
+
+  <!-- Split Calculator -->
+  <section id="splits">
+    <h1>Royalty Split Calculator</h1>
+    <div id="splitCalculator">
+      <label for="totalRoyalty">Total Royalty ($):</label><br>
+      <input type="number" id="totalRoyalty" value="100" min="0"><br>
+      <label>Number of Contributors:</label><br>
+      <input type="number" id="contributors" value="2" min="1"><br>
+      <div id="splitInputs"></div>
+      <button id="calculateSplitBtn">Calculate Splits</button><br>
+      <p id="splitOutput">Individual splits will appear here.</p>
+    </div>
+  </section>
+
+  <!-- Media Licensing Products -->
+  <section id="mediaLicensing">
+    <h1>Media Licensing Agreements</h1>
+    <p>Secure your music with legal licensing agreements and sell or distribute your content safely. Choose the plan that fits your needs:</p>
+    <div class="license-container">
+      <div class="license-plan" style="background:#e6f0ff;">
+        <h2>Basic Plan</h2>
+        <p><strong>Price:</strong> $99.99</p>
+        <ul>
+          <li>Single Track License</li>
+          <li>Feature content discount access</li>
+          <li>Standard Legal Agreement Template</li>
+        </ul>
+        <button onclick="purchaseLicense('Basic')">Purchase License</button>
+      </div>
+      <div class="license-plan" style="background:#d0e7ff;">
+        <h2>Pro Plan</h2>
+        <p><strong>Price:</strong> $199.99/month</p>
+        <ul>
+          <li>Up to 5 Tracks Licensed</li>
+          <li>Advanced Agreement Customization</li>
+          <li>Priority Support & Legal Consultation</li>
+        </ul>
+        <button onclick="purchaseLicense('Pro')">Purchase License</button>
+      </div>
+      <div class="license-plan" style="background:#b3d9ff;">
+        <h2>Enterprise Plan</h2>
+        <p><strong>Price:</strong> Contact us</p>
+        <ul>
+          <li>Unlimited Track Licensing</li>
+          <li>Fully Custom Legal Agreements</li>
+          <li>Dedicated Account Manager</li>
+        </ul>
+        <button onclick="purchaseLicense('Enterprise')">Contact Sales</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>&copy; 2026 SMGPUB. All rights reserved.</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
