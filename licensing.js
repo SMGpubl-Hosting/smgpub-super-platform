@@ -1,0 +1,2 @@
+javascript import Navbar from '../components/Navbar'; import Footer from '../components/Footer'; export default function Licensing() { return (<div><Navbar /><main><h1>Music Licensing</h1><form><label>Name:</label><br/><input type="text" name="name"/><br/><label>Email:</label><br/><input type="email" name="email"/><br/><label>Track ID:</label><br/><input type="text" name="track"/><br/><button type="submit">Request License</button></form></main><Footer /></div>); }
+
