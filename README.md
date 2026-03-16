@@ -44,3 +44,26 @@ This project is the ultimate music licensing, distribution, and publishing platf
     "express": "^4.18.2"
   }
 }
+
+
+# SMGPUB Multiverse Enterprise 🚀
+
+An end-to-end digital media publishing platform featuring AI copyright detection and smart-contract royalty distribution.
+
+## Tech Stack
+- **Frontend:** HTML5, CSS3, Vanilla JS (Modular ES6)
+- **Backend:** Node.js, Express
+- **Database:** MongoDB (Metadata) & AWS S3 (High-fidelity Audio)
+- **AI:** Custom Audio Fingerprinting Engine
+- **Blockchain:** Ethereum-compatible Copyright Ledger
+
+## Setup
+1. Clone the repository.
+2. Run `npm install`.
+3. Configure your `.env` based on `.env.example`.
+4. Run `npm start` to launch the API and Frontend.
+
+## Architecture Highlights
+- `/apps/creator-studio`: Dedicated UI for artists to manage splits.
+- `/ai-systems`: Heavy-lifting algorithms for metadata generation.
+- `/core-engines`: The business logic for PRO registrations (ASCAP/BMI).
