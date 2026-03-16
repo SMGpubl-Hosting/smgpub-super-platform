@@ -102,6 +102,54 @@ body {
     padding: 25px;
     border-radius: 16px;
     height: 400px;
+}/* ============================================================
+   SEARCH & AI ANIMATIONS
+   ============================================================ */
+
+.search-container {
+    transition: var(--transition);
 }
+
+/* The "AI is Thinking" state */
+.search-container.is-loading::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    animation: ai-pulse 1.5s infinite;
+    filter: blur(2px);
+}
+
+@keyframes ai-pulse {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+#globalSearch:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow);
+    background: var(--color-surface-hover);
+}
+
+/* Glassmorphism for the Search Dropdown */
+.search-results-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    z-index: 100;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
 
 }
