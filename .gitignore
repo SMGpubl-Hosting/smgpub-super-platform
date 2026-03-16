@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Environment & Secrets
+.env
+infrastructure/env/.env
+*.log
+
+# Build Outputs
+dist/
+build/
+bin/
+obj/
+
+# Mobile/iPhone Local Files
+ios/App/Pods/
+ios/App/App.xcworkspace
+*.moved-aside
+DerivedData/
+
+# Large Media (Managed by your cloud storage)
+storage/audio/*
+storage/stems/*
+storage/artwork/*
+!storage/.gitkeep
