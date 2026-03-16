@@ -1,0 +1,41 @@
+:root {
+    --cobalt: #0047FF;
+    --neon: #00F0FF;
+    --onyx: #050505;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background: var(--onyx);
+    color: white;
+    font-family: 'Geist', sans-serif;
+}
+
+.hero-enterprise {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #111 0%, #050505 100%);
+    text-align: center;
+}
+
+.audio-card {
+    background: var(--glass);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.btn-primary {
+    background: var(--cobalt);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 71, 255, 0.4);
+}
