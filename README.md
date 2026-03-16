@@ -4,7 +4,7 @@
 This project is the ultimate music licensing, distribution, and publishing platform.
 
 ## Folder Structure
-- `apps/` - Frontend apps: web, admin, creator
+- `apps/` - Frontend apps: web, website, admin, creator
 - `backend/` - API and server
 - `core/` - Core modules: publishing, licensing, distribution, royalties
 - `storage/` - Audio, artwork, contracts, stems
