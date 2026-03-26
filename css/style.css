@@ -1,0 +1,10 @@
+:root {
+  --bg:#0b0b12; --panel:#151525; --primary:#37d0ff; --accent:#c24bff;
+  --text:#fff; --muted:#9fb3c8; --stroke:#24243a; --radius:14px;
+  --transition:all 0.25s ease;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+button{cursor:pointer;}
+.card{background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:20px;transition:var(--transition);}
+.card:hover{transform:translateY(-3px);border-color:var(--primary);}
+audio{width:100%;margin-top:10px;}
