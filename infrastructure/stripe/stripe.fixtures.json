@@ -1,0 +1,54 @@
+{
+  "products": {
+    "smgpub_web": {
+      "name": "SMGPUB Web",
+      "description": "Public-facing SMGPUB experience for readers and general users.",
+      "metadata": { "app": "web", "platform": "smgpub-ultimate-v2" }
+    },
+    "smgpub_admin": {
+      "name": "SMGPUB Admin Console",
+      "description": "Administrative console for catalog, users, and system operations.",
+      "metadata": { "app": "admin", "platform": "smgpub-ultimate-v2" }
+    },
+    "smgpub_creator": {
+      "name": "SMGPUB Creator Portal",
+      "description": "Portal for authors and creators to manage works, earnings, and analytics.",
+      "metadata": { "app": "creator", "platform": "smgpub-ultimate-v2" }
+    },
+    "smgpub_enterprise": {
+      "name": "SMGPUB Enterprise Suite",
+      "description": "Enterprise-grade licensing, distribution, and catalog management.",
+      "metadata": { "app": "enterprise", "platform": "smgpub-ultimate-v2" }
+    }
+  },
+  "prices": {
+    "smgpub_web_monthly": {
+      "product": "smgpub_web",
+      "currency": "usd",
+      "unit_amount": 0,
+      "recurring": { "interval": "month" },
+      "metadata": { "plan": "free", "app": "web" }
+    },
+    "smgpub_admin_seat_monthly": {
+      "product": "smgpub_admin",
+      "currency": "usd",
+      "unit_amount": 4900,
+      "recurring": { "interval": "month" },
+      "metadata": { "plan": "seat", "app": "admin" }
+    },
+    "smgpub_creator_pro_monthly": {
+      "product": "smgpub_creator",
+      "currency": "usd",
+      "unit_amount": 1900,
+      "recurring": { "interval": "month" },
+      "metadata": { "plan": "pro", "app": "creator" }
+    },
+    "smgpub_enterprise_annual": {
+      "product": "smgpub_enterprise",
+      "currency": "usd",
+      "unit_amount": 499000,
+      "recurring": { "interval": "year" },
+      "metadata": { "plan": "enterprise", "app": "enterprise" }
+    }
+  }
+}
