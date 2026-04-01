@@ -1,1 +1,239 @@
-<h1>SMGPUB LIVE</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMGPUB℠ | Publishing • Licensing • Marketplace</title>
+
+<style>
+:root{
+--bg:#0b0c14;
+--panel:#12131F;
+--primary:#37d0ff;
+--accent:#c24bff;
+--text:#EAEFFF;
+--muted:#9BA4B9;
+--stroke:#1C1E2C;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Arial, sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 30px;
+border-bottom:1px solid var(--stroke);
+}
+
+.logo{
+font-weight:bold;
+font-size:22px;
+color:var(--primary);
+}
+
+nav a{
+margin-left:20px;
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:100px 20px 60px;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.hero span{
+background:linear-gradient(90deg,var(--primary),var(--accent));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+color:var(--muted);
+margin-bottom:30px;
+}
+
+/* BUTTON */
+.btn{
+background:linear-gradient(90deg,var(--primary),var(--accent));
+border:none;
+padding:12px 22px;
+cursor:pointer;
+margin:5px;
+font-weight:bold;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+/* CARD */
+.card{
+background:var(--panel);
+padding:20px;
+border:1px solid var(--stroke);
+border-radius:10px;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:var(--primary);
+}
+
+.price{
+color:var(--primary);
+font-weight:bold;
+margin:10px 0;
+}
+
+section h2{
+text-align:center;
+margin-top:60px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">SMGPUB℠</div>
+<nav>
+<a href="#store">Store</a>
+<a href="#services">Services</a>
+<a href="#dashboard">Dashboard</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Music Publishing <span>Done Right</span></h1>
+<p>Sell beats, license music, manage royalties — all in one platform.</p>
+
+<button class="btn" onclick="loadProducts()">Browse Store</button>
+<button class="btn" onclick="loadServices()">View Services</button>
+</section>
+
+<!-- STORE -->
+<section id="store">
+<h2>Marketplace</h2>
+<div id="products" class="grid"></div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Services</h2>
+<div id="servicesList" class="grid"></div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+<h2>Dashboard</h2>
+<div class="grid">
+<div class="card">Catalog Management</div>
+<div class="card">Royalty Tracking</div>
+<div class="card">Licensing & Contracts</div>
+</div>
+</section>
+
+<footer>
+© 2026 SMGPUB℠ — Raymond Summers
+</footer>
+
+<script>
+
+const API = "/api";
+
+// LOAD PRODUCTS
+async function loadProducts(){
+try{
+const res = await fetch(API + "/products");
+const data = await res.json();
+
+document.getElementById("products").innerHTML =
+data.map(p => `
+<div class="card">
+<h3>${p.id}</h3>
+<div class="price">$${p.price}</div>
+<button class="btn" onclick="buy('${p.id}')">Buy</button>
+</div>
+`).join('');
+
+}catch(e){
+alert("Products failed to load");
+}
+}
+
+// LOAD SERVICES
+async function loadServices(){
+try{
+const res = await fetch(API + "/services");
+const data = await res.json();
+
+document.getElementById("servicesList").innerHTML =
+data.map(s => `
+<div class="card">
+<h3>${s.name}</h3>
+<div class="price">$${s.price}</div>
+<button class="btn" onclick="subscribe('${s.name}')">Subscribe</button>
+</div>
+`).join('');
+
+}catch(e){
+alert("Services failed to load");
+}
+}
+
+// BUY PRODUCT
+async function buy(id){
+const res = await fetch(API + "/stripe/create-checkout",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({productId:id})
+});
+const data = await res.json();
+window.location.href = data.url;
+}
+
+// SUBSCRIBE
+async function subscribe(plan){
+const res = await fetch(API + "/stripe/subscribe",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({plan})
+});
+const data = await res.json();
+window.location.href = data.url;
+}
+
+</script>
+
+</body>
+</html>
